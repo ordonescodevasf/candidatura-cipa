@@ -1,0 +1,13 @@
+PUBLICAÇÃO NO GITHUB PAGES
+
+1. Abra o repositório candidatura-cipa.
+2. Envie TODO o conteúdo desta pasta para a raiz do repositório.
+3. Preserve as pastas assets/css, assets/js, assets/img e assets/docs.
+4. Vá a Settings > Pages.
+5. Em Source, escolha Deploy from a branch.
+6. Branch: main. Pasta: /(root).
+7. Salve e aguarde.
+
+Site: https://ordonescodevasf.github.io/candidatura-cipa/
+
+IMPORTANTE: este pacote não usa .github nem .nojekyll.

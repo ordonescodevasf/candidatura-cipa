@@ -1,0 +1,1 @@
+Abra index-unico.html no navegador para uma prévia local. Para publicar, use index.html e toda a pasta assets.

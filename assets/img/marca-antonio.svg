@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 190" role="img" aria-labelledby="t d">
+<title id="t">Candidato Antonio Ordones, CIPA 2026/2027</title><desc id="d">Marca tipográfica da candidatura com as cores do universo visual da Codevasf.</desc>
+<defs>
+ <linearGradient id="g" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#005ca9"/><stop offset=".38" stop-color="#74c9ea"/><stop offset=".63" stop-color="#007d4e"/><stop offset="1" stop-color="#89bd2b"/></linearGradient>
+ <linearGradient id="g2" x1="0" x2="1"><stop stop-color="#007d4e"/><stop offset="1" stop-color="#005ca9"/></linearGradient>
+</defs>
+<text x="8" y="24" font-family="Arial, sans-serif" font-weight="800" font-size="19" letter-spacing="5" fill="#222b54">CANDIDATO</text>
+<text x="6" y="102" font-family="Arial, sans-serif" font-weight="950" font-size="84" letter-spacing="-5" fill="url(#g)">ANTONIO</text>
+<text x="6" y="171" font-family="Arial, sans-serif" font-weight="950" font-size="77" letter-spacing="-4" fill="#222b54">ORDONES</text>
+<g transform="translate(478 34)"><rect width="164" height="132" rx="31" fill="url(#g2)"/><path d="M20 24h124" stroke="#fff" stroke-width="2" opacity=".35"/><text x="82" y="78" text-anchor="middle" font-family="Arial,sans-serif" font-size="54" font-weight="950" fill="#fff">CIPA</text><text x="82" y="108" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" letter-spacing="3" fill="#fff">2026/2027</text></g>
+</svg>
