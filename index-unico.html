@@ -63,6 +63,40 @@ const start=new Date('2026-09-10T00:00:00-03:00'),end=new Date('2026-09-12T00:00
 function tick(){const now=new Date();let target=start;if(now>=start&&now<end){target=end;els.title.textContent='A votação está aberta';els.note.textContent='Vote pela intranet até 23h59 de 11 de setembro.'}else if(now>=end){[els.d,els.h,els.m,els.s].forEach(x=>x.textContent='00');els.title.textContent='Votação encerrada';els.note.textContent='Acompanhe a divulgação oficial do resultado pelos canais internos.';return}else{els.title.textContent='Faltam poucos dias para votar';els.note.textContent='A eleição será realizada no ambiente da intranet.'}let ms=Math.max(0,target-now),d=Math.floor(ms/86400000);ms-=d*86400000;let h=Math.floor(ms/3600000);ms-=h*3600000;let m=Math.floor(ms/60000);ms-=m*60000;let s=Math.floor(ms/1000);els.d.textContent=String(d).padStart(2,'0');els.h.textContent=String(h).padStart(2,'0');els.m.textContent=String(m).padStart(2,'0');els.s.textContent=String(s).padStart(2,'0');}
 tick();setInterval(tick,1000);
 })();</script>
+<style>
+
+/* Ferramentas flutuantes: acessibilidade e voltar ao inicio */
+.floating-tools{position:fixed;left:24px;bottom:24px;z-index:9997;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.floating-tool{position:relative;width:58px;height:58px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;box-shadow:0 14px 32px rgba(34,43,84,.25);transition:transform .18s,box-shadow .18s,opacity .18s;background:var(--navy)}
+.floating-tool:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(34,43,84,.32)}
+.floating-tool:focus-visible,.accessibility-panel button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.floating-tool svg{width:27px;height:27px;fill:currentColor}
+.floating-accessibility{background:linear-gradient(135deg,var(--navy),var(--blue))}
+.floating-top{background:linear-gradient(135deg,var(--green),#0a9862)}
+.floating-label{position:absolute;left:68px;top:50%;transform:translateY(-50%) translateX(-5px);padding:8px 11px;border-radius:9px;background:var(--navy);color:#fff;font-size:11px;font-weight:900;white-space:nowrap;opacity:0;pointer-events:none;transition:.16s;box-shadow:0 8px 20px rgba(34,43,84,.18)}
+.floating-tool:hover .floating-label,.floating-tool:focus-visible .floating-label{opacity:1;transform:translateY(-50%) translateX(0)}
+.accessibility-panel{position:fixed;left:94px;bottom:24px;z-index:9999;width:min(320px,calc(100vw - 130px));background:#fff;color:var(--navy);border:1px solid #dce7ed;border-radius:20px;padding:17px;box-shadow:0 20px 55px rgba(34,43,84,.27)}
+.accessibility-panel[hidden]{display:none}
+.accessibility-panel__head{display:flex;align-items:center;justify-content:space-between;gap:15px;padding-bottom:12px;border-bottom:1px solid #e6edf1}
+.accessibility-panel__head small{display:block;font-size:9px;letter-spacing:.14em;font-weight:950;color:var(--green);margin-bottom:3px}
+.accessibility-panel__head strong{font-size:18px}
+.accessibility-close{width:34px;height:34px;border:0;border-radius:50%;background:#eef4f7;color:var(--navy);font-size:24px;line-height:1;cursor:pointer}
+.accessibility-options{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}
+.accessibility-options button{min-height:72px;border:1px solid #dce7ed;border-radius:14px;background:#f8fbfc;color:var(--navy);padding:10px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;text-align:left;cursor:pointer;transition:.16s}
+.accessibility-options button:hover{border-color:rgba(0,92,169,.45);background:#fff}
+.accessibility-options button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.accessibility-options button span{font-size:18px;font-weight:950}
+.accessibility-options button b{font-size:11px;line-height:1.25}
+.accessibility-options .accessibility-reset{grid-column:1/-1;min-height:48px;flex-direction:row;align-items:center;justify-content:center;background:#fff}
+.accessibility-panel>p{font-size:10px;line-height:1.45;color:#697789;margin:12px 2px 0}
+body.a11y-high-contrast{--navy:#000;--blue:#003d73;--green:#005b36;--off:#fff}
+body.a11y-high-contrast *:focus-visible{outline:4px solid #ffdf00!important;outline-offset:3px!important}
+body.a11y-highlight-links a{text-decoration:underline!important;text-decoration-thickness:2px!important;text-underline-offset:3px!important}
+body.a11y-reduce-motion *,body.a11y-reduce-motion *::before,body.a11y-reduce-motion *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+@media(max-width:760px){.floating-tools{left:16px;bottom:16px}.floating-tool{width:54px;height:54px}.floating-tool svg{width:25px;height:25px}.floating-label{display:none}.accessibility-panel{left:16px;right:16px;bottom:144px;width:auto;max-height:calc(100vh - 170px);overflow:auto}.accessibility-options{grid-template-columns:1fr 1fr}}
+@media(max-width:390px){.accessibility-options{grid-template-columns:1fr}.accessibility-options .accessibility-reset{grid-column:auto}}
+
+</style>
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -208,9 +242,74 @@ tick();setInterval(tick,1000);
 <section class="social-strip" id="redes" aria-labelledby="social-title"><div class="social-strip__inner reveal"><div><p class="eyebrow eyebrow--light">VAMOS CONVERSAR</p><h2 id="social-title">Fale e acompanhe Antonio</h2><p>Ideias para a CIPA se constroem ouvindo. Acompanhe as redes, compartilhe e mande sua sugestão diretamente.</p></div><nav class="social-links" aria-label="Redes sociais de Antonio Ordones"><a href="https://www.instagram.com/antonio_ordones?igsi=Z2Iwb2o2MWFuOHU5&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Antonio Ordones"><span>IG</span><b>Instagram</b></a><a href="https://www.facebook.com/share/1DY4R3tovf/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Antonio Ordones"><span>f</span><b>Facebook</b></a><a href="https://www.linkedin.com/in/antonioordones" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Antonio Ordones"><span>in</span><b>LinkedIn</b></a><a href="mailto:antonio.ordones@codevasf.gov.br?subject=CIPA%20Codevasf%20-%20mensagem%20para%20Antonio%20Ordones" aria-label="E-mail institucional de Antonio Ordones"><span>@</span><b>E-mail</b></a><a href="https://wa.me/5562981062212" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Antonio Ordones"><span>WA</span><b>WhatsApp</b></a></nav></div></section>
 <footer class="site-footer"><div class="footer-top"><div><img class="footer-campaign" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NTAgMTkwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idCBkIj4KPHRpdGxlIGlkPSJ0Ij5DYW5kaWRhdG8gQW50b25pbyBPcmRvbmVzLCBDSVBBIDIwMjYvMjAyNzwvdGl0bGU+PGRlc2MgaWQ9ImQiPlZlcnPDo28gYnJhbmNhIGRhIG1hcmNhIGRhIGNhbmRpZGF0dXJhLjwvZGVzYz4KPHRleHQgeD0iOCIgeT0iMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1zaXplPSIxOSIgbGV0dGVyLXNwYWNpbmc9IjUiIGZpbGw9IiNmZmYiPkNBTkRJREFUTzwvdGV4dD4KPHRleHQgeD0iNiIgeT0iMTAyIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5NTAiIGZvbnQtc2l6ZT0iODQiIGxldHRlci1zcGFjaW5nPSItNSIgZmlsbD0iI2ZmZiI+QU5UT05JTzwvdGV4dD4KPHRleHQgeD0iNiIgeT0iMTcxIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5NTAiIGZvbnQtc2l6ZT0iNzciIGxldHRlci1zcGFjaW5nPSItNCIgZmlsbD0iI2ZmZiI+T1JET05FUzwvdGV4dD4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDc4IDM0KSI+PHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxMjgiIHJ4PSIyOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjQiLz48cGF0aCBkPSJNMjAgMjRoMTI0IiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iLjQ1Ii8+PHRleHQgeD0iODIiIHk9Ijc4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI1NCIgZm9udC13ZWlnaHQ9Ijk1MCIgZmlsbD0iI2ZmZiI+Q0lQQTwvdGV4dD48dGV4dCB4PSI4MiIgeT0iMTA4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNyIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjMiIGZpbGw9IiNmZmYiPjIwMjYvMjAyNzwvdGV4dD48L2c+Cjwvc3ZnPg==" alt="Candidato Antonio Ordones, CIPA 2026/2027"></div><div class="footer-disclaimer"><p>Página pessoal de divulgação de candidatura individual à CIPA da Sede da Codevasf — gestão 2026/2027. Este site não é página institucional e não representa posicionamento oficial da Codevasf. As propostas dependem de diálogo, análise e atuação das áreas competentes.</p></div></div><div class="footer-bottom"><span>Antonio Ordones • CIPA Codevasf 2026/2027</span><a href="assets/docs/edital-cipa-codevasf-2026-2027.pdf" target="_blank" rel="noopener">Edital</a><a href="assets/docs/benchmarking-cipa-estatais-federais.pdf" target="_blank" rel="noopener">Benchmarking</a><a href="http://lattes.cnpq.br/4301382762226121" target="_blank" rel="noopener">Lattes</a><a href="https://curriculo.sougov.economia.gov.br/antonio-neto-1991045346" target="_blank" rel="noopener">SouGOV</a><a href="https://www.instagram.com/antonio_ordones?igsi=Z2Iwb2o2MWFuOHU5&utm_source=qr" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/antonioordones" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:antonio.ordones@codevasf.gov.br?subject=CIPA%20Codevasf%20-%20mensagem%20para%20Antonio%20Ordones">E-mail institucional</a><a href="#inicio">Voltar ao topo ↑</a></div></footer>
 
+
+<div class="floating-tools" aria-label="Ferramentas de navegação e acessibilidade">
+  <button class="floating-tool floating-top" type="button" data-back-to-top aria-label="Voltar ao início da página" title="Voltar ao início" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5.6 4.8 12.8l1.7 1.7 4.3-4.3V20h2.4v-9.8l4.3 4.3 1.7-1.7L12 5.6Z"/></svg>
+    <span class="floating-label">Voltar ao início</span>
+  </button>
+  <button class="floating-tool floating-accessibility" type="button" data-accessibility-toggle aria-expanded="false" aria-controls="accessibility-panel" aria-label="Abrir opções de acessibilidade" title="Acessibilidade">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.2a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM4.5 7.7h15v2.2H14v3.2l3.2 7.4-2.2.9-3-6.8-3 6.8-2.2-.9 3.2-7.4V9.9H4.5V7.7Z"/></svg>
+    <span class="floating-label">Acessibilidade</span>
+  </button>
+</div>
+<div class="accessibility-panel" id="accessibility-panel" role="dialog" aria-modal="false" aria-labelledby="accessibility-title" hidden>
+  <div class="accessibility-panel__head">
+    <div><small>FERRAMENTAS</small><strong id="accessibility-title">Acessibilidade</strong></div>
+    <button type="button" class="accessibility-close" data-accessibility-close aria-label="Fechar opções de acessibilidade">×</button>
+  </div>
+  <div class="accessibility-options">
+    <button type="button" data-a11y="contrast" aria-pressed="false"><span>◐</span><b>Alto contraste</b></button>
+    <button type="button" data-a11y="links" aria-pressed="false"><span>↗</span><b>Destacar links</b></button>
+    <button type="button" data-a11y="motion" aria-pressed="false"><span>Ⅱ</span><b>Reduzir movimento</b></button>
+    <button type="button" class="accessibility-reset" data-a11y-reset><span>↺</span><b>Restaurar padrão</b></button>
+  </div>
+  <p>As preferências ficam salvas neste navegador.</p>
+</div>
+
 <a class="floating-email" href="mailto:antonio.ordones@codevasf.gov.br?subject=CIPA%20Codevasf%20-%20mensagem%20para%20Antonio%20Ordones" aria-label="Enviar e-mail para Antonio Ordones">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h18v14H3V5Zm2 2v.2l7 5.1 7-5.1V7H5Zm14 10V9.7l-7 5.1-7-5.1V17h14Z"/></svg>
   <span>Enviar e-mail</span>
 </a>
 <div class="toast" role="status" aria-live="polite"></div>
+<script>
+
+(()=>{
+  const topBtn=document.querySelector('[data-back-to-top]');
+  const accessBtn=document.querySelector('[data-accessibility-toggle]');
+  const panel=document.getElementById('accessibility-panel');
+  const closeBtn=document.querySelector('[data-accessibility-close]');
+  const optionBtns=[...document.querySelectorAll('[data-a11y]')];
+  const resetBtn=document.querySelector('[data-a11y-reset]');
+  const key='antonio-cipa-a11y';
+  const classes={contrast:'a11y-high-contrast',links:'a11y-highlight-links',motion:'a11y-reduce-motion'};
+  let prefs={contrast:false,links:false,motion:false};
+  try{prefs={...prefs,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){}
+  const apply=()=>{
+    Object.entries(classes).forEach(([name,cls])=>document.body.classList.toggle(cls,!!prefs[name]));
+    optionBtns.forEach(btn=>btn.setAttribute('aria-pressed',String(!!prefs[btn.dataset.a11y])));
+    try{localStorage.setItem(key,JSON.stringify(prefs))}catch(e){}
+  };
+  apply();
+  if(topBtn){
+    const syncTop=()=>{topBtn.hidden=window.scrollY<420};
+    syncTop();
+    window.addEventListener('scroll',syncTop,{passive:true});
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:document.body.classList.contains('a11y-reduce-motion')?'auto':'smooth'}));
+  }
+  const setPanel=open=>{
+    if(!panel||!accessBtn)return;
+    panel.hidden=!open;
+    accessBtn.setAttribute('aria-expanded',String(open));
+    if(open){const first=panel.querySelector('button');if(first)first.focus()}
+  };
+  if(accessBtn)accessBtn.addEventListener('click',()=>setPanel(accessBtn.getAttribute('aria-expanded')!=='true'));
+  if(closeBtn)closeBtn.addEventListener('click',()=>{setPanel(false);accessBtn&&accessBtn.focus()});
+  optionBtns.forEach(btn=>btn.addEventListener('click',()=>{const name=btn.dataset.a11y;prefs[name]=!prefs[name];apply()}));
+  if(resetBtn)resetBtn.addEventListener('click',()=>{prefs={contrast:false,links:false,motion:false};apply()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel&&!panel.hidden){setPanel(false);accessBtn&&accessBtn.focus()}});
+  document.addEventListener('click',e=>{if(panel&&!panel.hidden&&!panel.contains(e.target)&&accessBtn&&!accessBtn.contains(e.target))setPanel(false)});
+})();
+
+</script>
 </body></html>

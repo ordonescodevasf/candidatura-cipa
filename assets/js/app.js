@@ -11,3 +11,41 @@ const start=new Date('2026-09-10T00:00:00-03:00'),end=new Date('2026-09-12T00:00
 function tick(){const now=new Date();let target=start;if(now>=start&&now<end){target=end;els.title.textContent='A votação está aberta';els.note.textContent='Vote pela intranet até 23h59 de 11 de setembro.'}else if(now>=end){[els.d,els.h,els.m,els.s].forEach(x=>x.textContent='00');els.title.textContent='Votação encerrada';els.note.textContent='Acompanhe a divulgação oficial do resultado pelos canais internos.';return}else{els.title.textContent='Faltam poucos dias para votar';els.note.textContent='A eleição será realizada no ambiente da intranet.'}let ms=Math.max(0,target-now),d=Math.floor(ms/86400000);ms-=d*86400000;let h=Math.floor(ms/3600000);ms-=h*3600000;let m=Math.floor(ms/60000);ms-=m*60000;let s=Math.floor(ms/1000);els.d.textContent=String(d).padStart(2,'0');els.h.textContent=String(h).padStart(2,'0');els.m.textContent=String(m).padStart(2,'0');els.s.textContent=String(s).padStart(2,'0');}
 tick();setInterval(tick,1000);
 })();
+
+(()=>{
+  const topBtn=document.querySelector('[data-back-to-top]');
+  const accessBtn=document.querySelector('[data-accessibility-toggle]');
+  const panel=document.getElementById('accessibility-panel');
+  const closeBtn=document.querySelector('[data-accessibility-close]');
+  const optionBtns=[...document.querySelectorAll('[data-a11y]')];
+  const resetBtn=document.querySelector('[data-a11y-reset]');
+  const key='antonio-cipa-a11y';
+  const classes={contrast:'a11y-high-contrast',links:'a11y-highlight-links',motion:'a11y-reduce-motion'};
+  let prefs={contrast:false,links:false,motion:false};
+  try{prefs={...prefs,...JSON.parse(localStorage.getItem(key)||'{}')}}catch(e){}
+  const apply=()=>{
+    Object.entries(classes).forEach(([name,cls])=>document.body.classList.toggle(cls,!!prefs[name]));
+    optionBtns.forEach(btn=>btn.setAttribute('aria-pressed',String(!!prefs[btn.dataset.a11y])));
+    try{localStorage.setItem(key,JSON.stringify(prefs))}catch(e){}
+  };
+  apply();
+  if(topBtn){
+    const syncTop=()=>{topBtn.hidden=window.scrollY<420};
+    syncTop();
+    window.addEventListener('scroll',syncTop,{passive:true});
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:document.body.classList.contains('a11y-reduce-motion')?'auto':'smooth'}));
+  }
+  const setPanel=open=>{
+    if(!panel||!accessBtn)return;
+    panel.hidden=!open;
+    accessBtn.setAttribute('aria-expanded',String(open));
+    if(open){const first=panel.querySelector('button');if(first)first.focus()}
+  };
+  if(accessBtn)accessBtn.addEventListener('click',()=>setPanel(accessBtn.getAttribute('aria-expanded')!=='true'));
+  if(closeBtn)closeBtn.addEventListener('click',()=>{setPanel(false);accessBtn&&accessBtn.focus()});
+  optionBtns.forEach(btn=>btn.addEventListener('click',()=>{const name=btn.dataset.a11y;prefs[name]=!prefs[name];apply()}));
+  if(resetBtn)resetBtn.addEventListener('click',()=>{prefs={contrast:false,links:false,motion:false};apply()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel&&!panel.hidden){setPanel(false);accessBtn&&accessBtn.focus()}});
+  document.addEventListener('click',e=>{if(panel&&!panel.hidden&&!panel.contains(e.target)&&accessBtn&&!accessBtn.contains(e.target))setPanel(false)});
+})();
+
