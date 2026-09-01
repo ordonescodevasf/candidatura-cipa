@@ -34,3 +34,9 @@ O site inclui Lattes, SouGOV, Instagram, Facebook, LinkedIn e WhatsApp.
 
 ## Jingle da campanha
 O player usa o arquivo `assets/audio/quem-toinzin-da-codevasf-versao-1.mp3`. O áudio não inicia automaticamente; o visitante escolhe quando reproduzir.
+
+
+## Atualização de mídia
+- Vídeo institucional da campanha em `assets/video/video-institucional-campanha.mp4`.
+- Jingle em `assets/audio/quem-toinzin-da-codevasf-versao-1.mp3`.
+- O site exibe um selo de transparência informando o uso de inteligência artificial na produção dos materiais digitais.
