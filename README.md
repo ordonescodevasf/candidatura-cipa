@@ -31,3 +31,6 @@ Não há `.github` nem `.nojekyll` neste pacote; portanto, não é necessário f
 ## Links de currículo e redes
 
 O site inclui Lattes, SouGOV, Instagram, Facebook, LinkedIn e WhatsApp.
+
+## Jingle da campanha
+O player usa o arquivo `assets/audio/quem-toinzin-da-codevasf-versao-1.mp3`. O áudio não inicia automaticamente; o visitante escolhe quando reproduzir.

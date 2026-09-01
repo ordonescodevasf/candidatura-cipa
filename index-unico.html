@@ -49,6 +49,30 @@
 @media(max-width:1080px){.campaign-brand img{width:270px}.main-nav{gap:15px}.menu-toggle{display:block;z-index:25}.main-nav{position:absolute;right:22px;top:92px;display:none;flex-direction:column;align-items:stretch;background:#fff;padding:18px 20px;border-radius:16px;box-shadow:var(--shadow);min-width:230px}.main-nav.is-open{display:flex}.hero-inner{grid-template-columns:1fr .83fr}.hero h1{font-size:78px}.hero-portrait-wrap{height:610px}.hero-portrait{height:610px}.cipa-badge{width:135px;height:135px;right:0}.cipa-badge img{width:119px;height:119px}.about-grid{grid-template-columns:1fr}.about-visual{max-width:900px}.manifesto-inner{grid-template-columns:1fr;gap:10px}.manifesto-copy,.manifesto-list{padding-top:60px}.section-head{grid-template-columns:1fr;gap:25px}.references-inner{grid-template-columns:1fr}.materials-grid{grid-template-columns:.75fr 1.25fr}.social-strip__inner{grid-template-columns:1fr}.social-links{grid-template-columns:repeat(5,1fr)}.contact-section__inner{grid-template-columns:1fr;gap:34px}}
 @media(max-width:760px){html{scroll-padding-top:72px}.hero{min-height:auto}.site-header{min-height:82px;padding:15px 18px}.campaign-brand img{width:205px}.main-nav{top:75px}.hero-inner{display:flex;flex-direction:column;padding:24px 20px 0}.hero-copy{padding:30px 0 0}.hero h1{font-size:clamp(56px,18vw,78px)}.hero-lead{font-size:18px}.hero-values{font-size:9px;gap:6px;flex-wrap:wrap}.hero-portrait-wrap{height:530px;width:100%;margin-top:-5px;justify-content:center}.portrait-halo{width:405px;height:405px;bottom:35px}.hero-portrait{height:515px;max-width:112vw}.cipa-badge{top:40px;right:0;width:105px;height:105px}.cipa-badge img{width:93px;height:93px}.cipa-badge span{display:none}.hero:after{height:100px}.plan-strip{padding:0 12px}.plan-strip__inner{border-radius:0 0 24px 24px;min-height:auto;padding:22px;display:block}.plan-strip__inner:after{right:-150px}.plan-strip h2{font-size:22px}.plan-strip__inner .button{margin-top:15px}.section{padding:80px 20px}.about-copy h2{font-size:65px}.about-highlight{font-size:21px;line-height:1.65}.about-visual{display:flex}.mini-flyer{display:flex;max-width:460px}.manifesto{padding:120px 20px 80px}.manifesto-copy h2{font-size:47px}.manifesto-list article{grid-template-columns:45px 1fr;gap:9px}.manifesto-list article p{grid-column:2}.proposal-grid{grid-template-columns:1fr}.proposal-card{padding:23px}.section-head h2,.materials-copy h2{font-size:46px}.references{padding:95px 20px 0}.reference-card{width:290px;min-height:370px}.reference-download{border-radius:24px 24px 0 0;display:block;padding:25px}.reference-download .button{margin-top:18px}.election{padding:130px 20px 80px}.election-card{grid-template-columns:1fr;padding:16px;gap:18px}.election-date{min-height:130px}.election-copy{padding:3px 8px 12px}.election-copy h2{font-size:40px}.countdown-wrap{grid-template-columns:1fr;gap:25px}.countdown{grid-template-columns:repeat(2,1fr)}.materials-grid{grid-template-columns:1fr}.poster-card{max-width:430px;margin:auto}.palette i{width:38px;height:38px}.final-cta{padding:75px 20px}.social-strip__inner{grid-template-columns:1fr}.social-links{grid-template-columns:repeat(2,1fr)}.contact-section{padding:68px 20px}.contact-grid{grid-template-columns:1fr}.contact-card--wide{grid-column:auto}.contact-card{padding:19px;min-height:0}.contact-intro h2{font-size:48px}.floating-email{right:16px;bottom:16px;width:58px;height:58px;min-height:58px;padding:0;justify-content:center}.floating-email span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.footer-top{grid-template-columns:1fr;gap:30px}.footer-disclaimer{text-align:left}.footer-disclaimer p{margin-left:0}.footer-campaign{max-width:90%}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Jingle da campanha */
+.button--outline{background:#fff;color:var(--navy);border:1px solid rgba(34,43,84,.15)}
+.jingle-section{position:relative;background:linear-gradient(180deg,#f7fbfd 0%,#fff 100%);overflow:hidden}
+.jingle-section:before{content:"";position:absolute;inset:0;background:url('../img/pattern-light.webp') center/cover;opacity:.18;pointer-events:none}
+.jingle-shell{position:relative;z-index:2;display:grid;grid-template-columns:.86fr 1.14fr;max-width:1180px;margin:auto;border-radius:34px;overflow:hidden;background:#fff;border:1px solid #dce7ed;box-shadow:0 26px 65px rgba(34,43,84,.14)}
+.jingle-art{position:relative;min-height:520px;padding:48px 44px;background:linear-gradient(145deg,var(--blue) 0%,#0068b8 42%,var(--green) 100%);color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.jingle-art:after{content:"";position:absolute;right:-105px;bottom:-95px;width:310px;height:310px;border-radius:50%;border:54px solid rgba(137,189,43,.82);box-shadow:0 0 0 25px rgba(255,255,255,.08)}
+.jingle-art__rings{position:absolute;left:-155px;top:-130px;width:430px;height:430px;border-radius:50%;border:65px solid rgba(116,201,234,.24);box-shadow:0 0 0 42px rgba(255,255,255,.055)}
+.jingle-kicker{position:relative;z-index:2;font-size:11px;font-weight:950;letter-spacing:.18em;margin-bottom:23px;color:#eaf8ff}
+.jingle-question{position:relative;z-index:2;font-size:clamp(48px,5vw,72px);font-weight:950;line-height:.85;letter-spacing:-.06em;color:var(--lime)}
+.jingle-name{position:relative;z-index:2;font-size:clamp(58px,5.8vw,88px);font-weight:950;line-height:.78;letter-spacing:-.065em;margin-top:13px}.jingle-name span{font-size:.56em;letter-spacing:-.035em;color:#fff}
+.jingle-wave{position:relative;z-index:2;height:55px;display:flex;align-items:center;gap:6px;margin-top:30px}.jingle-wave i{width:7px;border-radius:99px;background:#fff;opacity:.92}.jingle-wave i:nth-child(1){height:18px}.jingle-wave i:nth-child(2){height:34px}.jingle-wave i:nth-child(3){height:48px}.jingle-wave i:nth-child(4){height:27px}.jingle-wave i:nth-child(5){height:53px}.jingle-wave i:nth-child(6){height:39px}.jingle-wave i:nth-child(7){height:24px}.jingle-wave i:nth-child(8){height:44px}.jingle-wave i:nth-child(9){height:31px}.jingle-wave i:nth-child(10){height:51px}.jingle-wave i:nth-child(11){height:36px}.jingle-wave i:nth-child(12){height:20px}
+.jingle-stamp{position:relative;z-index:2;margin-top:20px;font-size:10px;font-weight:900;letter-spacing:.12em;color:#dff4ff}
+.jingle-copy{padding:58px 56px;display:flex;flex-direction:column;justify-content:center}.jingle-copy h2{font-size:clamp(44px,4.7vw,68px);line-height:.92;letter-spacing:-.055em;margin:0 0 24px;color:var(--blue)}.jingle-copy h2 span{color:var(--green)}.jingle-copy>p:not(.eyebrow):not(.jingle-note){font-size:17px;line-height:1.65;color:#5d6b7d;margin:0 0 25px}.jingle-copy strong{color:var(--navy)}
+.jingle-player{border:1px solid #dce7ed;background:#f8fbfc;border-radius:21px;padding:17px 18px 15px;box-shadow:0 12px 30px rgba(34,43,84,.07)}
+.jingle-player__head{display:flex;align-items:center;gap:14px;margin-bottom:12px}.jingle-player__head>div{min-width:0}.jingle-player__head small{display:block;font-size:9px;font-weight:950;letter-spacing:.13em;color:var(--green);margin-bottom:4px}.jingle-player__head strong{display:block;font-size:17px;line-height:1.25;color:var(--navy)}.jingle-player__head span:not(.jingle-disc){display:block;margin-top:3px;font-size:11px;color:#718096}
+.jingle-disc{width:54px;height:54px;flex:0 0 54px;border-radius:50%;background:conic-gradient(var(--navy),var(--blue),var(--green),var(--navy));display:grid;place-items:center;box-shadow:0 7px 16px rgba(34,43,84,.18)}.jingle-disc:before{content:"";width:20px;height:20px;border-radius:50%;background:#fff}.jingle-disc b{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--lime)}
+.jingle-player audio{display:block;width:100%;height:42px}
+.jingle-note{font-size:12px;line-height:1.55;color:#728093;margin:15px 1px 0;padding-left:14px;border-left:3px solid var(--lime)}
+.jingle-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+@media(max-width:1080px){.jingle-shell{grid-template-columns:1fr}.jingle-art{min-height:380px}.jingle-copy{padding:46px}.jingle-name{font-size:74px}.jingle-question{font-size:58px}}
+@media(max-width:760px){.jingle-section{padding:76px 20px}.jingle-shell{border-radius:25px}.jingle-art{min-height:360px;padding:34px 28px}.jingle-name{font-size:60px}.jingle-question{font-size:48px}.jingle-copy{padding:34px 26px}.jingle-copy h2{font-size:44px}.jingle-copy>p:not(.eyebrow):not(.jingle-note){font-size:15px}.jingle-actions .button{width:100%}}
+
 </style>
 <script>(()=>{const SITE_URL='https://ordonescodevasf.github.io/candidatura-cipa/';const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
 const toast=(msg)=>{const t=$('.toast');if(!t)return;t.textContent=msg;t.classList.add('is-visible');clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('is-visible'),2200)};
@@ -108,13 +132,13 @@ body.a11y-reduce-motion *,body.a11y-reduce-motion *::before,body.a11y-reduce-mot
   <header class="site-header" aria-label="Cabeçalho principal">
     <a class="campaign-brand" href="#inicio" aria-label="Antonio Ordones, início"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NTAgMTkwIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0idCBkIj4KPHRpdGxlIGlkPSJ0Ij5DYW5kaWRhdG8gQW50b25pbyBPcmRvbmVzLCBDSVBBIDIwMjYvMjAyNzwvdGl0bGU+PGRlc2MgaWQ9ImQiPk1hcmNhIHRpcG9ncsOhZmljYSBkYSBjYW5kaWRhdHVyYSBjb20gYXMgY29yZXMgZG8gdW5pdmVyc28gdmlzdWFsIGRhIENvZGV2YXNmLjwvZGVzYz4KPGRlZnM+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB4Mj0iMSIgeTE9IjAiIHkyPSIwIj48c3RvcCBzdG9wLWNvbG9yPSIjMDA1Y2E5Ii8+PHN0b3Agb2Zmc2V0PSIuMzgiIHN0b3AtY29sb3I9IiM3NGM5ZWEiLz48c3RvcCBvZmZzZXQ9Ii42MyIgc3RvcC1jb2xvcj0iIzAwN2Q0ZSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzg5YmQyYiIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9ImcyIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMwMDdkNGUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDVjYTkiLz48L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjx0ZXh0IHg9IjgiIHk9IjI0IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iMTkiIGxldHRlci1zcGFjaW5nPSI1IiBmaWxsPSIjMjIyYjU0Ij5DQU5ESURBVE88L3RleHQ+Cjx0ZXh0IHg9IjYiIHk9IjEwMiIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTUwIiBmb250LXNpemU9Ijg0IiBsZXR0ZXItc3BhY2luZz0iLTUiIGZpbGw9InVybCgjZykiPkFOVE9OSU88L3RleHQ+Cjx0ZXh0IHg9IjYiIHk9IjE3MSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTUwIiBmb250LXNpemU9Ijc3IiBsZXR0ZXItc3BhY2luZz0iLTQiIGZpbGw9IiMyMjJiNTQiPk9SRE9ORVM8L3RleHQ+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ3OCAzNCkiPjxyZWN0IHdpZHRoPSIxNjQiIGhlaWdodD0iMTMyIiByeD0iMzEiIGZpbGw9InVybCgjZzIpIi8+PHBhdGggZD0iTTIwIDI0aDEyNCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIG9wYWNpdHk9Ii4zNSIvPjx0ZXh0IHg9IjgyIiB5PSI3OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNTQiIGZvbnQtd2VpZ2h0PSI5NTAiIGZpbGw9IiNmZmYiPkNJUEE8L3RleHQ+PHRleHQgeD0iODIiIHk9IjEwOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTciIGZvbnQtd2VpZ2h0PSI4MDAiIGxldHRlci1zcGFjaW5nPSIzIiBmaWxsPSIjZmZmIj4yMDI2LzIwMjc8L3RleHQ+PC9nPgo8L3N2Zz4=" alt="Candidato Antonio Ordones, CIPA 2026/2027"></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span><b class="sr-only">Abrir menu</b></button>
-    <nav class="main-nav" id="main-nav" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#propostas">Propostas</a><a href="#eleicao">Eleição</a><a href="#referencias">Referências</a><a href="#contato">Contato</a><button class="nav-cta" type="button" data-share>Compartilhar</button></nav>
+    <nav class="main-nav" id="main-nav" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#jingle">Jingle</a><a href="#propostas">Propostas</a><a href="#eleicao">Eleição</a><a href="#referencias">Referências</a><a href="#contato">Contato</a><button class="nav-cta" type="button" data-share>Compartilhar</button></nav>
   </header>
   <div class="hero-inner">
     <div class="hero-copy reveal is-visible">
       <h1 id="hero-title"><span>INOVAR</span><span>PARA PROTEGER</span></h1>
       <p class="hero-lead"><strong>Diálogo, prevenção e cuidado</strong> para construir soluções com quem faz a Codevasf todos os dias.</p>
-      <div class="hero-actions"><a class="button button--green" href="#propostas">Conheça as propostas</a><a class="button button--blue" href="#sobre">Conheça Antonio</a></div>
+      <div class="hero-actions"><a class="button button--green" href="#propostas">Conheça as propostas</a><a class="button button--blue" href="#sobre">Conheça Antonio</a><a class="button button--outline" href="#jingle">▶ Ouça o jingle</a></div>
       <div class="hero-values" aria-label="Valores da candidatura"><span>escuta ativa</span><i></i><span>inovação</span><i></i><span>segurança</span><i></i><span>bem-estar</span></div>
     </div>
     <div class="hero-portrait-wrap reveal is-visible">
@@ -126,6 +150,50 @@ body.a11y-reduce-motion *,body.a11y-reduce-motion *::before,body.a11y-reduce-mot
 </section>
 
 <section class="plan-strip" aria-label="Plano de propostas"><div class="plan-strip__pattern" aria-hidden="true"></div><div class="plan-strip__inner reveal"><div><span>PLANO DE PROPOSTAS</span><h2>11 ideias. 4 eixos. <strong>1 jeito de fazer:</strong> dialogar para construir.</h2></div><a class="button button--blue" href="#propostas">Ver propostas <span aria-hidden="true">↓</span></a></div></section>
+
+
+<section class="jingle-section section" id="jingle" aria-labelledby="jingle-title">
+  <div class="jingle-shell reveal">
+    <div class="jingle-art" aria-hidden="true">
+      <div class="jingle-art__rings"></div>
+      <div class="jingle-kicker">JINGLE DA CAMPANHA</div>
+      <div class="jingle-question">QUEM?</div>
+      <div class="jingle-name">TOINZIN<br><span>DA CODEVASF!</span></div>
+      <div class="jingle-wave">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="jingle-stamp">CIPA 2026/2027 • ANTONIO ORDONES</div>
+    </div>
+
+    <div class="jingle-copy">
+      <p class="eyebrow">APERTE O PLAY</p>
+      <h2 id="jingle-title">Uma campanha leve, positiva <span>e com proposta.</span></h2>
+      <p>O jingle transforma os compromissos da candidatura em uma mensagem simples e fácil de lembrar: <strong>escuta, prevenção, bem-estar, inovação e participação.</strong></p>
+
+      <div class="jingle-player">
+        <div class="jingle-player__head">
+          <span class="jingle-disc" aria-hidden="true"><b></b></span>
+          <div>
+            <small>JINGLE OFICIAL • VERSÃO 1</small>
+            <strong>Quem? Toinzin da Codevasf</strong>
+            <span>47 segundos</span>
+          </div>
+        </div>
+        <audio controls preload="metadata" aria-label="Jingle Quem? Toinzin da Codevasf — Versão 1">
+          <source src="assets/audio/quem-toinzin-da-codevasf-versao-1.mp3" type="audio/mpeg">
+          Seu navegador não oferece suporte ao player de áudio.
+        </audio>
+      </div>
+
+      <p class="jingle-note">Sem ataques e sem acusações: uma música para apresentar, de forma bem-humorada, as ideias e os valores da candidatura.</p>
+
+      <div class="jingle-actions">
+        <a class="button button--green" href="assets/audio/quem-toinzin-da-codevasf-versao-1.mp3" download>Baixar o jingle ↓</a>
+        <button class="button button--blue" type="button" data-share>Compartilhar campanha</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="about section" id="sobre" aria-labelledby="about-title">
   <div class="about-grid">
